@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :articles
-  resources :comments
+  resources :articles do
+    resources :comments, only: [:create]
+  end
 end
