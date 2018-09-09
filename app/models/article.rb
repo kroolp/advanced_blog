@@ -5,6 +5,7 @@ class Article < ApplicationRecord
   validates :text, presence: true, length: { maximum: 200 }
 
   has_many :comments, dependent: :destroy
+  belongs_to :user
 
   def tags=(obj)
     if obj.is_a?(String)
