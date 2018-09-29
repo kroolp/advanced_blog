@@ -11,6 +11,11 @@ class ArticlesController < ApplicationController
     if params[:q].present?
       @articles = @articles.where('? = any(tags)', params[:q])
     end
+
+    respond_to do |format|
+      format.html
+      format.js { render layout: false }
+    end
   end
 
   def new
